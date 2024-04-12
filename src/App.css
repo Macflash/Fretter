@@ -4,21 +4,22 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+  position: absolute;
+  top:0;bottom:0;left:0;right:0;overflow:hidden;
 }
 
 .Header {
-border-bottom: 1px solid grey;
-color: lightgrey;
-font-size: 120%;
-padding: 5px 15px;
-margin-bottom: 10px;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
+  border-bottom: 1px solid grey;
+  color: #4AF;
+  font-size: 120%;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 select {
@@ -71,4 +72,14 @@ input[type=number] {
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button {  
    opacity: 1;
+}
+
+a {
+  color: #4AF;
+}
+
+footer {
+  font-size: 75%;
+  padding: 5px 10px;
+  border-top: 1px solid grey;
 }

@@ -106,11 +106,12 @@ function App() {
       <svg
         id="fretboard"
         xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMinyMin slice"
         version="1.1"
         viewBox={`${Math.min(offset, 0) - 1} 0 ${
           Math.max(topScale, botScale) + 2
         } ${neckWidth}`}
-        style={{ margin: 20 }}
+        style={{ margin: "10px 0", minHeight: 100, height: `${neckWidth}in` }}
       >
         {/* Fret board */}
         <path
@@ -163,10 +164,10 @@ function App() {
             <path
               key={i}
               stroke={
-                i == 0
+                i == straightFret
+                  ? "#4AF"
+                  : i == 0
                   ? "white"
-                  : i == straightFret
-                  ? "lightblue"
                   : i % 12 == 0
                   ? "grey"
                   : i == middle
@@ -195,51 +196,65 @@ function App() {
         </path>
       </svg>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Fret #</th>
-            {useSlant ? (
-              <>
-                <th>Low</th>
-                <th>High</th>
-              </>
-            ) : (
-              <th>Distance</th>
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          {fretPositions.map(({ top, bot }, i) => (
-            <tr
-              key={i}
-              className={i % 12 === 0 ? "mark" : ""}
-              style={{ color: useSlant && top == bot ? "red" : undefined }}
-            >
-              <td>{i ? i : "Nut"}</td>
+      <div
+        style={{
+          flex: "auto",
+          overflow: "auto",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <table>
+          <thead>
+            <tr>
+              <th>Fret #</th>
+              {useSlant ? (
+                <>
+                  <th>Low</th>
+                  <th>High</th>
+                </>
+              ) : (
+                <th>Distance</th>
+              )}
+            </tr>
+          </thead>
+          <tbody>
+            {fretPositions.map(({ top, bot }, i) => (
+              <tr
+                key={i}
+                className={i % 12 === 0 ? "mark" : ""}
+                style={{ color: useSlant && top == bot ? "#4AF" : undefined }}
+              >
+                <td>{i ? i : "Nut"}</td>
+                <td>
+                  <Num num={bot} useDecimals={useDecimals} />
+                </td>
+                {useSlant ? (
+                  <td>
+                    <Num num={top} useDecimals={useDecimals} />
+                  </td>
+                ) : null}
+              </tr>
+            ))}
+            <tr style={{ color: straightFret >= 99 ? "#4AF" : undefined }}>
+              <th>Bridge</th>
               <td>
-                <Num num={bot} useDecimals={useDecimals} />
+                <Num num={botScale} useDecimals={useDecimals} />
               </td>
               {useSlant ? (
                 <td>
-                  <Num num={top} useDecimals={useDecimals} />
+                  <Num num={topScale + offset} useDecimals={useDecimals} />
                 </td>
               ) : null}
             </tr>
-          ))}
-          <tr style={{ color: straightFret >= 99 ? "red" : undefined }}>
-            <th>Bridge</th>
-            <td>
-              <Num num={botScale} useDecimals={useDecimals} />
-            </td>
-            {useSlant ? (
-              <td>
-                <Num num={topScale + offset} useDecimals={useDecimals} />
-              </td>
-            ) : null}
-          </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+
+      <footer>
+        This project is open source. Check it out on{" "}
+        <a href="https://github.com/macflash/fretter">github</a>
+      </footer>
     </div>
   );
 }
