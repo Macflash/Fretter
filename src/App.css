@@ -1,0 +1,74 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Header {
+border-bottom: 1px solid grey;
+color: lightgrey;
+font-size: 120%;
+padding: 5px 15px;
+margin-bottom: 10px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+
+select {
+  display: block;
+  height: auto;
+  color: white;
+  background: none;
+  border: 1px solid grey;
+  font-size: 75%;
+  border-radius: 0;
+  margin: 5px;
+  padding: 2px 5px;
+}
+
+option {
+  background: none;
+  background-color: #282c34;
+  border: 1px solid grey;
+  border-radius: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid grey;
+  margin: 10px;
+}
+
+th, td {
+  border: 1px solid grey;
+  padding: 0 10px;
+  height: 60px;
+}
+
+/* .whole { vertical-align: top;} */
+.frac { font-size: 75%; vertical-align: top; }
+
+.mark {
+  border: 2px solid lightgrey;
+}
+
+input[type=number] {
+  text-align: center;
+  font-size: 100%;
+  width: 65px;
+  color: white;
+  background: none;
+  border: 1px solid grey
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
