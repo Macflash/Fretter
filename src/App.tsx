@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import "./App.css";
 import { calculateFrets, middleFret } from "./app/frets";
 import { Num } from "./app/fractions";
@@ -48,7 +48,15 @@ function App() {
   return (
     <div className="App">
       <header className="Header">
-        <div style={{ marginRight: "auto" }}>Fretter</div>
+        <img src={logo} height={32} />
+        <div
+          style={{
+            marginRight: "auto",
+            marginLeft: 10,
+          }}
+        >
+          Fretter
+        </div>
         <select
           onChange={(e) => {
             setUseSlant(e.currentTarget.value == "fan");
