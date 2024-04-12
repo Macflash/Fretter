@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/fretter/static/css/main.640a4138.css",
+    "main.js": "/fretter/static/js/main.914dcb3b.js",
+    "static/js/453.574f20ac.chunk.js": "/fretter/static/js/453.574f20ac.chunk.js",
+    "index.html": "/fretter/index.html",
+    "main.640a4138.css.map": "/fretter/static/css/main.640a4138.css.map",
+    "main.914dcb3b.js.map": "/fretter/static/js/main.914dcb3b.js.map",
+    "453.574f20ac.chunk.js.map": "/fretter/static/js/453.574f20ac.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.640a4138.css",
+    "static/js/main.914dcb3b.js"
+  ]
+}
