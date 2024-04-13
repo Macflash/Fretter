@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fretter/static/css/main.9f8041c5.css",
-    "main.js": "/fretter/static/js/main.768a076d.js",
+    "main.css": "/fretter/static/css/main.b67ba9c3.css",
+    "main.js": "/fretter/static/js/main.482eb890.js",
     "static/js/453.574f20ac.chunk.js": "/fretter/static/js/453.574f20ac.chunk.js",
     "index.html": "/fretter/index.html",
-    "main.9f8041c5.css.map": "/fretter/static/css/main.9f8041c5.css.map",
-    "main.768a076d.js.map": "/fretter/static/js/main.768a076d.js.map",
+    "main.b67ba9c3.css.map": "/fretter/static/css/main.b67ba9c3.css.map",
+    "main.482eb890.js.map": "/fretter/static/js/main.482eb890.js.map",
     "453.574f20ac.chunk.js.map": "/fretter/static/js/453.574f20ac.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9f8041c5.css",
-    "static/js/main.768a076d.js"
+    "static/css/main.b67ba9c3.css",
+    "static/js/main.482eb890.js"
   ]
 }
