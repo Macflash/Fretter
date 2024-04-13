@@ -1,6 +1,6 @@
 # Fretter
 
-A fret layout tool and visualizer supporting single & multi scale length necks with SVG & CSV export options to support laser cutting and printing.
+A fret layout tool with a to-scale live preview supporting single & multi scale length necks with SVG & CSV export options to support laser cutting and printing.
 
 ![Recording of the utility being used to design a fretted neck](fretter-in-use.gif)
 

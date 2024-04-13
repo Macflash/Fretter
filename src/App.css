@@ -76,7 +76,7 @@ input[type=number] {
   width: 65px;
   color: white;
   background: none;
-  border: 1px solid grey
+  border: 1px solid grey;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
