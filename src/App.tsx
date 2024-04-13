@@ -6,6 +6,8 @@ import { Num } from "./app/fractions";
 import { Input } from "./app/inputs";
 import { downloadSVG, downloadCSV } from "./app/download";
 
+const GITHUB_URL = "https://github.com/macflash/fretter";
+
 function App() {
   const [useDecimals, setUseDecimals] = React.useState(false);
   const [useSlant, setUseSlant] = React.useState(true);
@@ -41,7 +43,9 @@ function App() {
             marginLeft: 10,
           }}
         >
-          Fretter
+          <a href={GITHUB_URL} target="_blank">
+            Fretter
+          </a>
         </div>
         <select
           onChange={(e) => {
@@ -97,7 +101,12 @@ function App() {
         viewBox={`${Math.min(offset, 0) - 1} 0 ${
           Math.max(topScale, botScale) + 2
         } ${neckWidth}`}
-        style={{ margin: "10px 0", minHeight: 100, height: `${neckWidth}in` }}
+        style={{
+          margin: "10px 0",
+          minHeight: 100,
+          // height: `${neckWidth}in`,
+          // width: `${Math.max(topScale + offset, botScale)}in`,
+        }}
       >
         {/* Fret board */}
         <path
@@ -182,15 +191,8 @@ function App() {
         </path>
       </svg>
 
-      <div
-        style={{
-          flex: "auto",
-          overflow: "auto",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <table>
+      <div className="table-wrapper">
+        <table className="fret-table">
           <thead>
             <tr>
               <th>Fret #</th>
@@ -258,8 +260,6 @@ function App() {
         >
           Download CSV
         </button>
-        This project is open source. Check it out on{" "}
-        <a href="https://github.com/macflash/fretter">github</a>
       </footer>
     </div>
   );

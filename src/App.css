@@ -93,3 +93,18 @@ footer {
   padding: 5px 10px;
   border-top: 1px solid grey;
 }
+
+.table-wrapper {
+  flex: auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+@media (min-width: 600px) {
+  .fret-table {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
