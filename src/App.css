@@ -60,6 +60,16 @@ th, td {
   border: 2px solid lightgrey;
 }
 
+button {
+  text-align: center;
+  font-size: 100%;
+  color: white;
+  background: #4AF;
+  border: 1px solid grey;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
 input[type=number] {
   text-align: center;
   font-size: 100%;
