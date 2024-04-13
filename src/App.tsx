@@ -4,20 +4,7 @@ import "./App.css";
 import { calculateFrets, middleFret } from "./app/frets";
 import { Num } from "./app/fractions";
 import { Input } from "./app/inputs";
-
-function downloadSVG(id: string, name: string) {
-  const svg = document.getElementById(id);
-  if (!svg) throw "Didn't find svg";
-  var svgData = svg.outerHTML;
-  var svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
-  var svgUrl = URL.createObjectURL(svgBlob);
-  var downloadLink = document.createElement("a");
-  downloadLink.href = svgUrl;
-  downloadLink.download = name + ".svg";
-  document.body.appendChild(downloadLink);
-  downloadLink.click();
-  document.body.removeChild(downloadLink);
-}
+import { downloadSVG, downloadCSV } from "./app/download";
 
 function App() {
   const [useDecimals, setUseDecimals] = React.useState(false);
@@ -253,13 +240,23 @@ function App() {
       <footer>
         <button
           onClick={() =>
-            downloadSVG(
-              "fretboard-svg",
-              `fretboard-${topScale}${useSlant ? "_" + botScale : ""}`
-            )
+            downloadSVG("fretboard-svg", { topScale, botScale, useSlant })
           }
         >
           Download SVG
+        </button>
+        <button
+          onClick={() =>
+            downloadCSV(fretPositions, {
+              useDecimals,
+              useSlant,
+              topScale,
+              botScale,
+              offset,
+            })
+          }
+        >
+          Download CSV
         </button>
         This project is open source. Check it out on{" "}
         <a href="https://github.com/macflash/fretter">github</a>

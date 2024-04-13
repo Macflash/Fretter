@@ -29,7 +29,7 @@ export function findFrac(
 }
 const ACCPETABLE_ERROR = 0.05; // Very arbitrary. Slightly less than a 16th.
 
-function fractionString(num: number, max = 32): string {
+export function fractionString(num: number, max = 32): string {
   const { whole, sup, sub } = findFrac(num, max);
   if (!sub || !sup) return whole + "";
 
