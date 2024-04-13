@@ -4,9 +4,8 @@ import "./App.css";
 import { calculateFrets, middleFret } from "./app/frets";
 import { Num } from "./app/fractions";
 import { Input } from "./app/inputs";
-import { interpolate } from "./app/fretboard";
 
-function downloadSVG(id: string) {
+function downloadSVG(id: string, name: string) {
   const svg = document.getElementById(id);
   if (!svg) throw "Didn't find svg";
   var svgData = svg.outerHTML;
@@ -14,7 +13,7 @@ function downloadSVG(id: string) {
   var svgUrl = URL.createObjectURL(svgBlob);
   var downloadLink = document.createElement("a");
   downloadLink.href = svgUrl;
-  downloadLink.download = "newesttree.svg";
+  downloadLink.download = name + ".svg";
   document.body.appendChild(downloadLink);
   downloadLink.click();
   document.body.removeChild(downloadLink);
@@ -104,7 +103,7 @@ function App() {
       </div>
 
       <svg
-        id="fretboard"
+        id="fretboard-svg"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMinyMin slice"
         version="1.1"
@@ -143,7 +142,7 @@ function App() {
                     (tops[i] + tops[i - 1]) / 3 +
                     (bottoms[i] + bottoms[i - 1]) / 6
                   }
-                  cy={(0.75 * neckWidth) / 2}
+                  cy={(0.67 * neckWidth) / 2}
                   r={0.1}
                   fill="black"
                 />
@@ -153,7 +152,7 @@ function App() {
                     (tops[i] + tops[i - 1]) / 6 +
                     (bottoms[i] + bottoms[i - 1]) / 3
                   }
-                  cy={(1.25 * neckWidth) / 2}
+                  cy={(1.33 * neckWidth) / 2}
                   r={0.1}
                   fill="black"
                 />
@@ -252,6 +251,16 @@ function App() {
       </div>
 
       <footer>
+        <button
+          onClick={() =>
+            downloadSVG(
+              "fretboard-svg",
+              `fretboard-${topScale}${useSlant ? "_" + botScale : ""}`
+            )
+          }
+        >
+          Download SVG
+        </button>
         This project is open source. Check it out on{" "}
         <a href="https://github.com/macflash/fretter">github</a>
       </footer>
